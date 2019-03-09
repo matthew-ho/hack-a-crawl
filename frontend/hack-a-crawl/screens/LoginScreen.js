@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, Image, Button, Alert } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, ImageBackground, Image, Button, Alert } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Facebook } from 'expo';
+import logo from '../assets/logo2.png'
+
 
 const APP_ID = '2263438543927964';
 
@@ -48,20 +50,29 @@ export default class LoginScreen extends React.Component {
           borderRadius: 4,
           padding: 24,
           backgroundColor: '#3B5998',
+		  position: 'center',
+		  alignItem: 'center',
+		  top: '400%',
+
         }}>
         <Text style={{ color: 'white', fontWeight: 'bold' }}>
           Login to Facebook
         </Text>
       </View>
     </TouchableOpacity>
+
+
   );
 
   render() {
-    const {navigate} = this.props.navigation;
-    return (
-			<View>
-				{this.renderButton()}
-      </View>
-    );
+      const {navigate} = this.props.navigation;
+      return (
+          <View>
+              <ImageBackground source={logo} style={{width: '100%', height: '90%'}}>
+				  {this.renderButton()}
+              </ImageBackground>
+
+          </View>
+      );
   }
 }

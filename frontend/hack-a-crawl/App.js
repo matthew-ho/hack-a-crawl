@@ -8,6 +8,7 @@ const MainNavigator = createStackNavigator({
   Home: {screen: LoginScreen},
 });
 
+
 const App = createAppContainer(MainNavigator);
 
 export default App;
