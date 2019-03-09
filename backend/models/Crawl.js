@@ -8,11 +8,15 @@ var CrawlSchema = new Schema({
         type: String,
         required: true
     },
-    location: {
-        type: [Number],
+    lat: {
+        type: Number,
         required: true
     },
-    startTime: {
+    long: {
+        type: Number,
+        required: true
+    },
+    /*startTime: {
         type: Number,
         required: true
     },
@@ -31,8 +35,10 @@ var CrawlSchema = new Schema({
     invitedUsers: {
         type: [Number],
         required: true
-    },
+    },*/
     pubs: {
         type: [Object]
     }
-})
+});
+
+module.exports = mongoose.model('Crawl', CrawlSchema)

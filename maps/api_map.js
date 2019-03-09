@@ -1,6 +1,21 @@
-const request = require('request');
-request('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=51.5168,0.1342&radius=3000&type=bar&key=AIzaSyDsnRK5MJv24hYok7tbKZup3O67aeQqB1M', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
-});
+const request = require('xmlhttprequest');
+
+module.exports = {
+getPubs : function (lat, long) {
+  var json;
+  var httpReq;
+  httpReq = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
+  httpReq += lat.toString() + ',' + long.toString();
+  httpReq += '&radius=3000&type=bar&key=AIzaSyDsnRK5MJv24hYok7tbKZup3O67aeQqB1M';
+  let req = new request.XMLHttpRequest();
+  req.open("GET", httpReq,false);
+  req.send();
+  var result = JSON.parse(req.responseText);
+  var firstPubs = result.results.slice(0, 5);
+  var firstPubsNames = [];
+  firstPubs.forEach(pub => firstPubsNames.push(pub.name));
+  firstPubsNames.forEach(pubName => console.log(pubName));
+  return firstPubsNames;
+  }
+}
+

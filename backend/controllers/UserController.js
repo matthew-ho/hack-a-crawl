@@ -1,8 +1,12 @@
 'use strict';
 
+//import {getPubs} from "../../maps/api_map";
+
 var mongoose = require('mongoose'),
-    User = mongoose.model('User'),
-    Crawl = mongoose.model('Crawl');
+    User = mongoose.model('User');
+    //Crawl = mongoose.model('Crawl');
+
+
 
 exports.getUser = function(req, res) {
     User.findById(req.params.fbID, function(err, user) {
@@ -10,9 +14,10 @@ exports.getUser = function(req, res) {
            res.send(err);
        res.json(user);
     });
+
 };
 
-exports.getUserCrawls = function(req, res) {
+/*exports.getUserCrawls = function(req, res) {
     User.findById(req.params.fbID, function(err, user) {
         if(err)
             res.send(err);
@@ -20,7 +25,7 @@ exports.getUserCrawls = function(req, res) {
             Crawl.getCrawl(crawl, res);
         });
     });
-};
+};*/
 
 exports.getAllUsers = function(req, res) {
     User.find({}, function(err, user) {
