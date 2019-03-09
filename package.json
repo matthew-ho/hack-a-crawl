@@ -1,4 +1,5 @@
 {
+  "start": "nodemon server.js",
   "name": "hack-a-crawl",
   "version": "1.0.0",
   "description": "",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/matthew-ho/hack-a-crawl#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.18"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
