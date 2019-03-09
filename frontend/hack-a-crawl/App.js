@@ -14,6 +14,7 @@ const MainNavigator = createStackNavigator({
 	NewCrawl: {screen: NewCrawlScreen},
 });
 
+
 const App = createAppContainer(MainNavigator);
 
 export default App;
