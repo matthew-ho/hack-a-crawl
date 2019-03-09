@@ -33,6 +33,6 @@ var CrawlSchema = new Schema({
         required: true
     },
     pubs: {
-        type: [String]
+        type: [Object]
     }
 })

@@ -3,7 +3,10 @@
 module.exports = function(app) {
     var crawlController = require('../controllers/CrawlController');
 
-   /* app.route('/crawls')
+    app.route('/crawls')
         .get(crawlController.getCrawls)
-        .post(crawlController.addNewCrawl);*/
+        .post(crawlController.addNewCrawl);
+
+    app.route('/crawls/:crawlName')
+        .get(usersController.getCrawl);
 }

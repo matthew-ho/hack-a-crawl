@@ -9,5 +9,4 @@ module.exports = function(app) {
 
     app.route('/users/:userId')
         .get(usersController.getUser);
-        //.delete(usersController.deleteUser);
 }

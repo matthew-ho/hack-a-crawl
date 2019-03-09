@@ -1,15 +1,26 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    Crawl = mongoose.model('Crawl');
 
 exports.getUser = function(req, res) {
-    User.findById(req.params.fbID, function(err, task) {
+    User.findById(req.params.fbID, function(err, user) {
        if(err)
            res.send(err);
-       res.json(task);
+       res.json(user);
     });
-}
+};
+
+exports.getUserCrawls = function(req, res) {
+    User.findById(req.params.fbID, function(err, user) {
+        if(err)
+            res.send(err);
+        res.crawls.forEach(function(crawl) {
+            Crawl.getCrawl(crawl, res);
+        });
+    });
+};
 
 exports.getAllUsers = function(req, res) {
     User.find({}, function(err, user) {

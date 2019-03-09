@@ -13,6 +13,9 @@ var UserSchema = new Schema({
     createdDate: {
         type: Date,
         default: Date.now
+    },
+    crawls: {
+        type:[String]
     }
 });
 
